@@ -2286,14 +2286,14 @@
             <span class="results-delta positive">over 7-mo tenure</span>
           </div>
           <div class="results-cell">
-            <span class="results-label">Unique Expirations</span>
-            <span class="results-value">35</span>
-            <span class="results-delta">Nov 2025 &ndash; Jun 2026</span>
+            <span class="results-label">Term Renewals Executed</span>
+            <span class="results-value">23</span>
+            <span class="results-delta">of 35 expirations</span>
           </div>
           <div class="results-cell">
-            <span class="results-label">Term Renewals Signed</span>
-            <span class="results-value">23</span>
-            <span class="results-delta positive">+4 month-to-month</span>
+            <span class="results-label">Converted to MTM</span>
+            <span class="results-value">4</span>
+            <span class="results-delta positive">retained month-to-month</span>
           </div>
           <div class="results-cell">
             <span class="results-label">Term Retention</span>
@@ -2303,7 +2303,7 @@
         </div>
 
         <div class="method-note" style="margin-top: 24px;">
-          <strong>Method note:</strong> Closed periods only (Nov&nbsp;2025 &ndash; Jun&nbsp;2026). Each tenant counted once by executed outcome; duplicate AppFolio offer rows collapsed to actual result. Pending outcomes excluded. February&nbsp;2026 excluded &mdash; no renewal expirations that month.
+          <strong>Method note:</strong> Closed periods only (Nov&nbsp;2025 &ndash; Jun&nbsp;2026). Each tenant counted once by executed outcome &mdash; AppFolio duplicate offer rows collapsed to actual result. A tenant is counted as vacated only when all offer options show &ldquo;Did Not Renew.&rdquo; Pending outcomes excluded. Negotiated short and extended terms counted under term renewals. February&nbsp;2026 excluded &mdash; no renewal expirations that month.
         </div>
       </div>
       <!-- End Chapter 2 -->
@@ -2825,13 +2825,13 @@
 
     // Distribution sums to 35 expirations: 23 term + 4 M2M + 8 vacated = 65.7% term retention
     const months = [
-      { label: 'Nov \u201925', term: 1, m2m: 0, vacated: 2 },
+      { label: 'Nov \u201925', term: 1, m2m: 0, vacated: 1 },
       { label: 'Dec \u201925', term: 4, m2m: 0, vacated: 0, annot: '4 for 4' },
       { label: 'Jan \u201926', term: 3, m2m: 0, vacated: 0, annot: '3 for 3' },
       { label: 'Mar \u201926', term: 1, m2m: 0, vacated: 3 },
       { label: 'Apr \u201926', term: 2, m2m: 1, vacated: 1 },
-      { label: 'May \u201926', term: 6, m2m: 2, vacated: 2 },
-      { label: 'Jun \u201926', term: 6, m2m: 1, vacated: 0 }
+      { label: 'May \u201926', term: 6, m2m: 2, vacated: 1 },
+      { label: 'Jun \u201926', term: 6, m2m: 1, vacated: 2 }
     ];
 
     const VB_W = 800, VB_H = 360;
