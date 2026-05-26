@@ -2566,9 +2566,87 @@
   @media print {
     .chapter-nav { display: none; }
     .niwa-shell { grid-template-columns: 1fr; }
-    .memo-footer { background: none; color: var(--ink); border-top: 1px solid var(--navy); }
+    .memo-footer { background: none; color: var(--ink); border-top: 1px solid var(--rule-light); }
     .memo-footer .label, .memo-footer .doc-title, .memo-footer .meta { color: var(--ink); }
   }
+
+  /* ====================================================================
+     LIGHT-BORDER + NON-ITALIC SWEEP
+     Globally softens container borders to a very light grey and forces
+     all italics back to upright Fraunces / Inter / Montserrat.
+     ==================================================================== */
+  :root {
+    --rule-light: #E5E9ED;
+  }
+
+  /* Borders — replace strong navy outlines on containers with --rule-light */
+  .niwa-arc .niwa-hero,
+  .niwa-arc .arc-grid,
+  .niwa-arc .results-row,
+  .niwa-arc .chart-card,
+  .niwa-arc .arc-highlight,
+  .market .chart-card,
+  .market .arc-grid,
+  #platform .pillars-grid,
+  #platform .arc-highlight,
+  #about .scale-grid,
+  .cap-grid {
+    border-color: var(--rule-light) !important;
+  }
+
+  /* Cell-grid separators (the hairlines between cells) */
+  .niwa-arc .arc-grid,
+  .market .arc-grid,
+  #platform .pillars-grid,
+  #about .scale-grid,
+  .cap-grid {
+    background-color: var(--rule-light) !important;
+  }
+
+  /* Memo headers + chapter-nav top rules */
+  .memo-header { border-bottom-color: var(--rule-light); }
+  .memo-header::before { background: var(--rule-light); }
+  .chapter-nav { border-top-color: var(--rule-light); }
+  .arc-chapter-header { border-top-color: var(--rule-light); border-bottom-color: var(--rule-light); }
+  .niwa-arc-narrative { border-top-color: var(--rule-light); border-bottom-color: var(--rule-light); }
+
+  /* Highlight callout left rule — soften the blue accent only slightly */
+  .niwa-arc .arc-highlight { border-left-color: var(--blue); }
+  #platform .arc-highlight { border-left-color: var(--blue); }
+
+  /* Cap-grid + KPI exhibit label bg matches paper so it reads cleanly */
+  .niwa-arc .results-row::before,
+  .cap-grid::before { background: var(--paper); }
+
+  /* Memo footer top accent kept blue — only its top stroke */
+  .memo-footer { border-top-color: var(--blue); }
+
+  /* ---------- Non-italic sweep ---------- */
+  /* All italic spans, em tags, and arc/highlight elements -> upright */
+  .italic, em, i,
+  .display .italic,
+  .niwa-hero-name .italic,
+  .arc-panel-lede .italic,
+  .niwa-arc .arc-panel-lede,
+  .niwa-arc .arc-highlight-value,
+  #platform .arc-highlight-value,
+  .niwa-arc-narrative p,
+  .chart-footnote em,
+  .disclaimer-note em,
+  .testimonial-quote,
+  .case-card-desc.placeholder,
+  .chapter-nav__item.is-active .chapter-nav__title,
+  .method-note,
+  .method-note strong,
+  .arc-cell-desc em,
+  .pillar-desc em {
+    font-style: normal !important;
+    font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 0 !important;
+  }
+
+  /* Highlight blue-text accent for old .italic spans now upright — keep colour cue */
+  .display .italic { color: var(--blue); }
+  .niwa-hero-name .italic { color: var(--blue-bright); }
 </style>
 </head>
 <body>
@@ -3374,7 +3452,7 @@
     const winterLab = el('text', {
       x: (winterX1 + winterX2) / 2, y: PAD_T + 22, 'text-anchor': 'middle',
       'font-family': 'Fraunces, Georgia, serif',
-      'font-size': '13', 'font-style': 'italic',
+      'font-size': '13', 'font-style': 'normal',
       fill: 'rgba(180, 80, 60, 0.85)'
     });
     winterLab.textContent = 'Winter leasing window';
@@ -3390,7 +3468,7 @@
     const peakLab = el('text', {
       x: PAD_L + 12, y: peakY - 8, 'text-anchor': 'start',
       'font-family': 'Fraunces, Georgia, serif',
-      'font-size': '12', 'font-style': 'italic',
+      'font-size': '12', 'font-style': 'normal',
       fill: 'rgba(10,37,64,0.65)'
     });
     peakLab.textContent = 'Prior mgmt peak: 81.9% (Sep \u201925)';
@@ -3406,7 +3484,7 @@
     const handoffLab = el('text', {
       x: handoffX, y: PAD_T - 22, 'text-anchor': 'middle',
       'font-family': 'Fraunces, Georgia, serif',
-      'font-size': '12', 'font-style': 'italic',
+      'font-size': '12', 'font-style': 'normal',
       fill: 'rgba(10,37,64,0.7)'
     });
     handoffLab.textContent = 'AGM onboarded Nov 1, 2025';
@@ -3430,7 +3508,7 @@
     const compLab = el('text', {
       x: compStartX + 8, y: compStartY - 8, 'text-anchor': 'start',
       'font-family': 'Fraunces, Georgia, serif',
-      'font-size': '11', 'font-style': 'italic',
+      'font-size': '11', 'font-style': 'normal',
       fill: 'rgba(10,37,64,0.55)'
     });
     compLab.textContent = 'Submarket comp set \u00b7 indicative';
@@ -3598,7 +3676,7 @@
       x: (springStartX + springEndX) / 2, y: bracketY - 6,
       'text-anchor': 'middle',
       'font-family': 'Fraunces, Georgia, serif',
-      'font-size': '11', 'font-style': 'italic',
+      'font-size': '11', 'font-style': 'normal',
       fill: '#3A8DDE'
     }, 'Spring expiration wave'));
 
@@ -3782,7 +3860,7 @@
         'text-anchor': 'start',
         'font-family': 'Fraunces, Georgia, serif',
         'font-size': '14',
-        'font-style': c.tone === 'flat' ? 'italic' : 'normal',
+        'font-style': 'normal',
         'font-weight': c.tone === 'flat' ? '400' : '500',
         fill: tone.color
       }, c.delta));
