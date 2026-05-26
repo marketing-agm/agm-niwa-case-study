@@ -2376,7 +2376,7 @@
           <div class="chart-header">
             <h3 class="chart-title">Operating Expense Breakdown &middot; Prior Mgmt (12-mo actuals) vs. AGM (7-mo actuals, annualized)</h3>
             <div class="chart-legend">
-              <span><span class="swatch" style="background: #C8703A;"></span>Prior management (12-mo actuals)</span>
+              <span style="color: var(--ink-3);"><span class="swatch" style="background: rgba(10,37,64,0.28);"></span>Prior management (12-mo actuals)</span>
               <span><span class="swatch" style="background: var(--blue);"></span>AGM (7-mo actuals, annualized)</span>
             </div>
           </div>
@@ -3057,13 +3057,13 @@
         fill: 'rgba(10,37,64,0.7)'
       }, c.label));
 
-      // Prior management bar (warm orange)
+      // Prior management bar (grey)
       const yPrior = y - BAR_H - 1;
       svg.appendChild(el('rect', {
         x: PAD_L, y: yPrior,
         width: Math.max(1, xScale(c.prior) - PAD_L),
         height: BAR_H,
-        fill: '#C8703A'
+        fill: 'rgba(10,37,64,0.32)'
       }));
 
       // AGM bar (blue, bottom)
